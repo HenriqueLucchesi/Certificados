@@ -45,6 +45,7 @@ h1 {
   align-items: flex-start; 
   text-align: left;        
   flex: 1;
+  font-size: 18px;
 }
 
 .conteudo h2 {
