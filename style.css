@@ -15,7 +15,7 @@
   --accent-color: #4f46e5;
   --border-color: #d1d5db;
   --text-color: #000000;
-  --cor-do-link: #2563eb;
+  --cor-do-link: #4f46e5;
   --cor-da-shadow: #e1e1e1;
 }
 
@@ -78,19 +78,22 @@ h1 {
 
 /* Certificado */
 .certificado {
-  background-color: var(--fundo-card);
   display: flex;
   align-items: center;
-  padding: 20px;
-  margin-bottom: 30px;
-  border-radius: 25px;
-  gap: 20px;
-  box-shadow: var(--cor-da-shadow);
+  gap: 5px;
+  background-color: var(--fundo-card);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
   opacity: 0;
-  animation: fadeInUp 0.6s ease-out forwards;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
 }
 
+.certificado.aparecer {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .certificado:hover {
   transform: scale(1.05);
@@ -101,6 +104,26 @@ h1 {
   width: 220px;
   max-width: 90%;
   border-radius: 8px;
+}
+
+.link-certificado {
+  display: flex;
+  justify-content: space-between; /* Alinha o botão de baixar à direita */
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.link-certificado .ver a,
+.link-certificado .Baixar a {
+  color: var(--cor-do-link);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link-certificado .ver a:hover,
+.link-certificado .Baixar a:hover {
+  text-decoration: underline;
 }
 
 .conteudo {
@@ -138,7 +161,7 @@ h1 {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: var(--accent-color);
+  background-color: var(--cor-do-link);
   color: var(--background-color);
   padding: 10px 15px;
   border-radius: 50%;
@@ -179,5 +202,11 @@ h1 {
 
   .conteudo h2 {
     font-size: 1rem;
+  }
+
+  .link-certificado {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 }

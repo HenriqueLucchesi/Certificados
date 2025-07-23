@@ -1,3 +1,4 @@
+// Tema escuro e claro
 function toggleMode() {
   const html = document.documentElement;
   html.classList.toggle('light');
@@ -9,16 +10,29 @@ function toggleMode() {
   }
 }
 
-// Para manter o tema salvo ao recarregar a página
+// Aplica tema salvo ao carregar
 window.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'light') {
     document.documentElement.classList.add('light');
   }
 
-  // Animação de entrada para os certificados
-  const certificados = document.querySelectorAll('.certificado');
-  certificados.forEach((el, index) => {
-    el.style.animationDelay = `${0.2 + index * 0.2}s`;
-  });
+  animarCertificadosScroll(); // chama a função aqui!
 });
+
+function animarCertificadosScroll() {
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('aparecer');
+        observer.unobserve(entry.target); // parar de observar depois de aparecer
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.certificado').forEach(cert => {
+    observer.observe(cert);
+  });
+}
