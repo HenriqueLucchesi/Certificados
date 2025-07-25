@@ -2,7 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shurtcut icon" href="Img/favicon.ico">
   <title>Certificados</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -11,138 +12,128 @@
 
   <main class="page">
     <div class="container">
-      <h1><strong>Certificados do Henrique Lucchesi Oliveira</strong></h1>
+      <h1>Certificados do Henrique Lucchesi Oliveira</h1>
 
-      <!-- Botão de tema -->
-      <div id="switch" onclick="toggleMode()" title="Alternar tema">
-        <button aria-label="Alternar tema"></button>
-      </div>
+<!-- Botão de tema centralizado -->
+<div class="tema-centralizado">
+  <div id="switch">
+    <button></button>
+  </div>
+</div>
 
-      <!-- Certificado 1 -->
-      <section class="certificado">
-        <a href="Certificado 1.pdf" target="_blank" rel="noopener noreferrer">
-          <img src="Img/certificado1.png" alt="Certificado do curso Futuro Conectado: Profissões e Tecnologia" />
+<!-- Controles -->
+<div class="linha-controles">
+  <!-- Filtros -->
+  <div class="filtro-dropdown">
+    <button class="dropbtn">Tecnologia ▾</button>
+    <div class="dropdown-content">
+      <button data-tecnologia="todos">Todos</button>
+      <button data-tecnologia="html">HTML</button>
+      <button data-tecnologia="Js">Javascript</button>
+      <button data-tecnologia="css">CSS</button>
+      <button data-tecnologia="git">Git</button>
+      <button data-tecnologia="github">GitHub</button>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Certificados -->
+      <section class="certificado js">
+        <a href="Certificado 1.pdf" target="_blank">
+          <img src="Img/certificado1.png" alt="Certificado 1" />
         </a>
         <div class="conteudo">
           <h2>Futuro Conectado: Profissões e Tecnologia</h2>
-          </a>
-          <p>Finalizado em 11 de maio de 2025</p>
+          <p>Finalizado em 11 de Março de 2025</p>
           <p><strong>Emitido por:</strong> Alura</p>
           <div class="link-certificado">
-            <div class="ver">
-              <a href="Certificado 1.pdf" target="_blank" rel="noopener noreferrer">Ver Certificado</a>
-            </div>
-              <div class="Baixar">
-                <a href="Certificado 1.pdf" download="certificado1">Baixar Certificado</a>
-              </div>
+            <div class="ver"><a href="Certificado 1.pdf" target="_blank">Ver Certificado</a></div>
+            <div class="Baixar"><a href="Certificado 1.pdf" download>Baixar Certificado</a></div>
           </div>
         </div>
       </section>
 
-      <!-- Certificado 2 -->
-      <section class="certificado">
-        <a href="Certificado 2.pdf" target="_blank" rel="noopener noreferrer">
-          <img src="Img/certificado2.png" alt="Certificado do curso Lógica de Programação: Criando Arte Interativa com P5.js" />
+      <section class="certificado js">
+        <a href="Certificado 2.pdf" target="_blank">
+          <img src="Img/certificado2.png" alt="Certificado 2" />
         </a>
         <div class="conteudo">
           <h2>Lógica de Programação: Criando Arte Interativa com P5.js</h2>
-          <p>Finalizado em 09 de maio de 2025</p>
+          <p>Finalizado em 09 de Maio de 2025</p>
           <p><strong>Emitido por:</strong> Alura</p>
           <div class="link-certificado">
-            <div class="ver">
-              <a href="Certificado 2.pdf" target="_blank" rel="noopener noreferrer">Ver Certificado</a>
-            </div>
-              <div class="Baixar">
-                <a href="Certificado 2.pdf" download="certificado">Baixar Certificado</a>
-              </div>
+            <div class="ver"><a href="Certificado 2.pdf" target="_blank">Ver Certificado</a></div>
+            <div class="Baixar"><a href="Certificado 2.pdf" download>Baixar Certificado</a></div>
           </div>
         </div>
       </section>
 
-      <!-- Certificado 3 -->
-      <section class="certificado">
-        <a href="Certificado 3.pdf" target="_blank" rel="noopener noreferrer">
-          <img src="Img/certificado3.png" alt="Certificado do curso Listas, Funções e Repetição: Criando um Jogo de Corrida (Parte 1)" />
+      <section class="certificado js">
+        <a href="Certificado 3.pdf" target="_blank">
+          <img src="Img/certificado3.png" alt="Certificado 3" />
         </a>
         <div class="conteudo">
-          <h2>Listas, Funções e Repetição: Criando um Jogo de Corrida (Parte 1)</h2>
-          <p>Finalizado em 10 de maio de 2025</p>
-          <p><strong>Emitido por:</strong> Alura</p>
-         <div class="link-certificado">
-           <div class="ver">
-              <a href="Certificado 3.pdf" target="_blank" rel="noopener noreferrer">Ver Certificado</a>
-            </div>
-              <div class="Baixar">
-                <a href="Certificado 3.pdf" download="certificado3">Baixar Certificado</a>
-              </div>
-         </div>
-        </div>
-      </section>
-
-      <!-- Certificado 4 -->
-      <section class="certificado">
-        <a href="Certificado 4.pdf" target="_blank" rel="noopener noreferrer">
-          <img src="Img/certificado4.png" alt="Certificado do curso Listas, Funções e Repetição: Criando um Jogo de Corrida (Parte 2)" />
-        </a>
-        <div class="conteudo">
-          <h2>Listas, Funções e Repetição: Criando um Jogo de Corrida (Parte 2)</h2>
-          <p>Finalizado em 12 de maio de 2025</p>
+          <h2>Listas, Funções e Repetição: Corrida (Parte 1)</h2>
+          <p>Finalizado em 10 de Maio de 2025</p>
           <p><strong>Emitido por:</strong> Alura</p>
           <div class="link-certificado">
-            <div class="ver">
-              <a href="Certificado 4.pdf" target=5_blank" rel="noopener noreferrer">Ver Certificado</a>
-            </div>
-              <div class="Baixar">
-                <a href="Certificado 4.pdf" download="certificado4">Baixar Certificado</a>
-              </div>
+            <div class="ver"><a href="Certificado 3.pdf" target="_blank">Ver Certificado</a></div>
+            <div class="Baixar"><a href="Certificado 3.pdf" download>Baixar Certificado</a></div>
           </div>
         </div>
       </section>
 
-      <!-- Certificado 5 -->
-      <section class="certificado">
-        <a href="Certificado 5.pdf" target="_blank" rel="noopener noreferrer">
-          <img src="Img/certificado5.png" alt="Certificado do curso Fundamentos da Programação Web, HTML, CSS, JavaScript, Git e GitHub" />
+      <section class="certificado js">
+        <a href="Certificado 4.pdf" target="_blank">
+          <img src="Img/certificado4.png" alt="Certificado 4" />
         </a>
         <div class="conteudo">
-          <h2>Fundamentos da Programação Web, HTML, CSS, JavaScript, Git e GitHub</h2>
-          <p>Finalizado em 24 de maio de 2025</p>
+          <h2>Listas, Funções e Repetição: Corrida (Parte 2)</h2>
+          <p>Finalizado em 12 de Maio de 2025</p>
+          <p><strong>Emitido por:</strong> Alura</p>
+          <div class="link-certificado">
+            <div class="ver"><a href="Certificado 4.pdf" target="_blank">Ver Certificado</a></div>
+            <div class="Baixar"><a href="Certificado 4.pdf" download>Baixar Certificado</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="certificado html css js git github">
+        <a href="Certificado 5.pdf" target="_blank">
+          <img src="Img/certificado5.png" alt="Certificado 5" />
+        </a>
+        <div class="conteudo">
+          <h2>Fundamentos da Programação Web</h2>
+          <p>Finalizado em 24 de Maio de 2025</p>
           <p><strong>Emitido por:</strong> Rocketseat</p>
           <div class="link-certificado">
-            <div class="ver">
-              <a href="Certificado 5.pdf" target="_blank" rel="noopener noreferrer">Ver Certificado</a>
-            </div>
-              <div class="Baixar">
-                <a href="Certificado 5.pdf" download="certificado5">Baixar Certificado</a>
-              </div>
+            <div class="ver"><a href="Certificado 5.pdf" target="_blank">Ver Certificado</a></div>
+            <div class="Baixar"><a href="Certificado 5.pdf" download>Baixar Certificado</a></div>
           </div>
-          </div>
+        </div>
       </section>
 
-      <!-- Certificado 6 -->
-      <section class="certificado">
-        <a href="Certificado 6.pdf" target="_blank" rel="noopener noreferrer">
-          <img src="Img/certificado6.png" alt="Certificado do curso Página Web: Criando seu Portfólio de Projetos" />
+      <section class="certificado html css">
+        <a href="Certificado 6.pdf" target="_blank">
+          <img src="Img/certificado6.png" alt="Certificado 6" />
         </a>
         <div class="conteudo">
-          <h2>Página Web: Criando seu Portfólio de Projetos</h2>
-          <p>Finalizado em 02 de julho de 2025</p>
+          <h2>Página Web: Criando seu Portfólio</h2>
+          <p>Finalizado em 02 de Julho de 2025</p>
           <p><strong>Emitido por:</strong> Alura</p>
           <div class="link-certificado">
-            <div class="ver">
-              <a href="Certificado 6.pdf" target="_blank" rel="noopener noreferrer">Ver Certificado</a>
-            </div>
-              <div class="Baixar">
-                <a href="Certificado 6.pdf" download="certificado6">Baixar Certificado</a>
-              </div>
-                  </div>
+            <div class="ver"><a href="Certificado 6.pdf" target="_blank">Ver Certificado</a></div>
+            <div class="Baixar"><a href="Certificado 6.pdf" download>Baixar Certificado</a></div>
           </div>
+        </div>
       </section>
 
     </div>
   </main>
 
   <a href="#topo" class="voltar-topo" title="Voltar ao topo">↑</a>
+
   <script src="script.js"></script>
 </body>
 </html>

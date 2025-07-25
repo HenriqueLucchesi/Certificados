@@ -1,38 +1,41 @@
-// Tema escuro e claro
 function toggleMode() {
   const html = document.documentElement;
   html.classList.toggle('light');
-
-  if (html.classList.contains('light')) {
-    localStorage.setItem('theme', 'light');
-  } else {
-    localStorage.setItem('theme', 'dark');
-  }
+  localStorage.setItem('theme', html.classList.contains('light') ? 'light' : 'dark');
 }
 
-// Aplica tema salvo ao carregar
 window.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
+  if (localStorage.getItem('theme') === 'light') {
     document.documentElement.classList.add('light');
   }
 
-  animarCertificadosScroll(); // chama a função aqui!
-});
+  document.querySelector('#switch').addEventListener('click', toggleMode);
 
-function animarCertificadosScroll() {
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('aparecer');
-        observer.unobserve(entry.target); // parar de observar depois de aparecer
-      }
+  const dropbtn = document.querySelector('.dropbtn');
+  const dropdown = document.querySelector('.dropdown-content');
+
+  dropbtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  });
+
+  window.addEventListener('click', () => {
+    dropdown.style.display = 'none';
+  });
+
+  const filtros = document.querySelectorAll('.dropdown-content button');
+  const certificados = document.querySelectorAll('.certificado');
+
+  filtros.forEach(botao => {
+    botao.addEventListener('click', () => {
+      const tec = botao.getAttribute('data-tecnologia').toLowerCase();
+
+      certificados.forEach(cert => {
+        const classes = cert.className.toLowerCase();
+        cert.style.display = (tec === 'todos' || classes.includes(tec)) ? 'flex' : 'none';
+      });
+
+      dropdown.style.display = 'none';
     });
-  }, {
-    threshold: 0.1
   });
-
-  document.querySelectorAll('.certificado').forEach(cert => {
-    observer.observe(cert);
-  });
-}
+});
