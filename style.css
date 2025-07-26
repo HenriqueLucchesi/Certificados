@@ -102,10 +102,13 @@ h1 {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .dropbtn:hover {
   background-color: var(--cor-botao-filtro-tec);
+  
+  transform: scale(1.2);
 }
 
 .dropdown-content {
@@ -138,6 +141,7 @@ h1 {
 
 .dropdown-content button:hover {
   background-color: var(--cor-botao-filtro-tec);
+
 }
 
 .arrow {
@@ -147,6 +151,36 @@ h1 {
 
 .arrow.open {
   transform: rotate(180deg);
+}
+
+.download a{
+  font-size: 13px;
+  color: var(--cor-do-link);
+  text-decoration: none;
+}
+
+.download {
+  margin-right: auto;
+  text-align: right;
+}
+
+.download a:hover {
+  text-decoration: underline;
+}
+
+.baixarbtn {
+  margin-left: auto;
+  background-color: var(--fundo-card);
+  border-radius: 16px;
+  border: none;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.baixarbtn:hover {
+  background-color: var(--cor-botao-filtro-tec);
+  
+  transform: scale(1.1);
 }
 
 /* Certificado */
