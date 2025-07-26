@@ -140,6 +140,15 @@ h1 {
   background-color: var(--cor-botao-filtro-tec);
 }
 
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
 /* Certificado */
 .certificado {
   display: flex;
@@ -234,6 +243,7 @@ h1 {
   .dropdown-content {
     max-height: 130px;   /* limita altura */
     overflow-y: auto;    /* adiciona scroll */
-    right: 30px;
+    right: 10px;
+    top: 200px;
   }
 }

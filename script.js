@@ -11,16 +11,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('#switch').addEventListener('click', toggleMode);
 
-  const dropbtn = document.querySelector('.dropbtn');
+  const dropbtn = document.querySelector('#dropdownBtn');
   const dropdown = document.querySelector('.dropdown-content');
+  const arrow = dropbtn.querySelector('.arrow');
 
   dropbtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    const isOpen = dropdown.style.display === 'block';
+    dropdown.style.display = isOpen ? 'none' : 'block';
+    arrow.classList.toggle("open", !isOpen);
   });
 
   window.addEventListener('click', () => {
     dropdown.style.display = 'none';
+    arrow.classList.remove("open");
   });
 
   const filtros = document.querySelectorAll('.dropdown-content button');
@@ -36,6 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
       });
 
       dropdown.style.display = 'none';
+      arrow.classList.remove("open");
     });
   });
 });
