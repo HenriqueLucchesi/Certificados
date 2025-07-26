@@ -230,4 +230,10 @@ h1 {
     flex-direction: column;
     align-items: center;
   }
+
+  .dropdown-content {
+    max-height: 130px;   /* limita altura */
+    overflow-y: auto;    /* adiciona scroll */
+    right: 30px;
+  }
 }
