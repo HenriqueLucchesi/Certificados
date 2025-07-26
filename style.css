@@ -247,3 +247,21 @@ h1 {
     top: 200px;
   }
 }
+
+@media (min-width:1440px) {
+  .dropdown-content {
+    right: 150px;
+  }
+}
+
+@media (min-width:1920px) {
+  .dropdown-content {
+    right: 400px;
+  }
+}
+
+@media (min-width:2560px) {
+  .dropdown-content {
+    right: 720px;
+  }
+}
