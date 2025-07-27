@@ -50,6 +50,60 @@ h1 {
   margin-bottom: 20px;
 }
 
+#language-bar {
+  display: block;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.language-selector-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--cor-botao-filtro);
+  border: 1px solid var(--cor-botao-filtro);
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.flag {
+  width: 20px;
+  height: auto;
+}
+
+.dropdown-content-lang {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--fundo-card);
+  border-radius: 8px;
+  margin-top: 0.4rem;
+  z-index: 1001;
+  min-width: 160px;
+}
+
+.dropdown-content-lang a {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.language-selector-wrapper.show .dropdown-content-lang {
+  display: block;
+}
+
 /* Tema */
 #switch {
   width: 60px;
