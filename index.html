@@ -22,13 +22,28 @@
 </div>
 
 <!-- Controles -->
-<div class="linha-controles">
-  <!-- Filtros -->
-  <div class="filtro-dropdown">
-    <button id="dropdownBtn" class="dropbtn">Tecnologia 
-     <span class="arrow">&#9662;</span>
+<div class="barra-controle">
+  <div class="esquerda">
+    <button id="ordenarDataBtn" class="dropbtn">
+      Ordem por data<span class="arrow">&#9662;</span>
     </button>
-    <div class="dropdown-content">
+    <div id="dropdownData" class="dropdown-content">
+      <button data-order="asc">Mais antigo ➡ Mais recente</button>
+      <button data-order="desc">Mais recente ➡ Mais antigo</button>
+    </div>
+  </div>
+
+  <div class="centro">
+    <a href="Certificado.zip" download class="baixar-btn">
+      Baixar todos os certificados
+    </a>
+  </div>
+
+  <div class="direita">
+    <button id="dropdownTecBtn" class="dropbtn">
+      Tecnologia <span class="arrow">&#9662;</span>
+    </button>
+    <div id="dropdownTec" class="dropdown-content">
       <button data-tecnologia="todos">Todos</button>
       <button data-tecnologia="html">HTML</button>
       <button data-tecnologia="Js">Javascript</button>
@@ -39,18 +54,11 @@
   </div>
 </div>
 
-  <div class="download">
-    <button class="baixarbtn">
-      <a href="Certificado.zip" download>
-        <h3>Baixar todos os certificados</h3>
-    </button>
-    </a>
-  </div>
 
 
       <!-- Certificados -->
        <!-- Certificado 1 -->
-      <section class="certificado js">
+      <section class="certificado js" data-date="2025-03-11">
         <a href="Certificado/Certificado 1.pdf" target="_blank">
           <img src="Img/certificado1.png" alt="Certificado 1" />
         </a>
@@ -70,7 +78,7 @@
       </section>
 
         <!-- Certificado 2 -->
-      <section class="certificado js">
+      <section class="certificado js" data-date="2025-05-09">
         <a href="Certificado/Certificado 2.pdf" target="_blank">
           <img src="Img/certificado2.png" alt="Certificado 2" />
         </a>
@@ -90,7 +98,7 @@
       </section>
 
         <!-- Certificado 3 -->
-      <section class="certificado js">
+      <section class="certificado js" data-date="2025-05-10">
         <a href="Certificado/Certificado 3.pdf" target="_blank">
           <img src="Img/certificado3.png" alt="Certificado 3" />
         </a>
@@ -110,7 +118,7 @@
       </section>
 
       <!-- Certificado 4 -->
-      <section class="certificado js">
+      <section class="certificado js" data-date="2025-05-12">
         <a href="Certificado/Certificado 4.pdf" target="_blank">
           <img src="Img/certificado4.png" alt="Certificado 4" />
         </a>
@@ -130,7 +138,7 @@
       </section>
 
           <!-- Certificado 5 -->
-      <section class="certificado html css js git github">
+      <section class="certificado html css js git github" data-date="2025-05-24">
         <a href="Certificado/certificado 5.pdf" target="_blank">
           <img src="Img/certificado5.png" alt="Certificado 5" />
         </a>
@@ -149,7 +157,8 @@
         </div>
       </section>
 
-      <section class="certificado html css">
+          <!-- Certificado 6 -->
+      <section class="certificado html css" data-date="2025-07-02">
         <a href="Certificado/Certificado 6.pdf" target="_blank">
           <img src="Img/certificado6.png" alt="Certificado 6" />
         </a>
