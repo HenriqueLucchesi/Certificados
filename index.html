@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <!-- Metadados básicos -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="shortcut icon" href="Img/favicon.ico">
+
+  <!-- Título da página com suporte a tradução -->
   <title data-i18n="titulo_pagina">Certificados</title>
+
+  <!-- Link para o CSS externo -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Âncora para permitir o botão de voltar ao topo funcionar -->
   <a id="topo"></a>
 
-  <!-- Barra de idioma -->
+  <!-- Barra de seleção de idioma com dropdown de bandeiras -->
   <div id="language-bar">
     <div class="language-selector-wrapper">
       <button class="dropbtn" onclick="toggleLangDropdown()">
@@ -18,6 +24,7 @@
         <span id="current-lang">PT-BR</span>
       </button>
       <div id="lang-menu" class="dropdown-content-lang">
+        <!-- Cada item seleciona um idioma específico -->
         <a href="#" onclick="selectLanguage('pt-BR')"><img class="flag" src="https://flagcdn.com/w20/br.png" alt="PT" /> Português (BR)</a>
         <a href="#" onclick="selectLanguage('en-US')"><img class="flag" src="https://flagcdn.com/w20/us.png" alt="EN" /> English (US)</a>
         <a href="#" onclick="selectLanguage('es-ES')"><img class="flag" src="https://flagcdn.com/w20/es.png" alt="ES" /> Español (ES)</a>
@@ -31,17 +38,19 @@
 
   <main class="page">
     <div class="container">
+      <!-- Título principal da página -->
       <h1 data-i18n="titulo">Certificados do Henrique Lucchesi Oliveira</h1>
 
-      <!-- Botão de tema -->
+      <!-- Botão para alternar entre modo claro/escuro -->
       <div class="tema-centralizado">
         <div id="switch" title="mudar tema">
           <button></button>
         </div>
       </div>
 
-      <!-- Controles -->
+      <!-- Barra com filtros e ações -->
       <div class="barra-controle">
+        <!-- Filtro por data -->
         <div class="esquerda">
           <button id="ordenarDataBtn" class="dropbtn" data-i18n="ordem_data">Ordem por data <span class="arrow">&#9662;</span></button>
           <div id="dropdownData" class="dropdown-content">
@@ -49,9 +58,13 @@
             <button data-order="desc" data-i18n="mais_recente">Mais recente ➡ Mais antigo</button>
           </div>
         </div>
+
+        <!-- Botão para baixar todos os certificados -->
         <div class="centro">
           <a href="Certificado.zip" download class="baixar-btn" data-i18n="baixar_todos" title="baixar todos os certificados em .zip">Baixar todos os certificados</a>
         </div>
+
+        <!-- Filtro por tecnologia -->
         <div class="direita">
           <button id="dropdownTecBtn" class="dropbtn">
             <span data-i18n="tecnologia">Tecnologia</span> <span class="arrow">&#9662;</span>
@@ -68,126 +81,133 @@
       </div>
 
       <!-- Certificados -->
-       <!-- Certificado 1 -->
-          <section class="certificado js" data-date="2025-03-11">
-      <a href="Certificado/Certificado 1.pdf" target="_blank">
-        <img src="Img/certificado1.png" alt="Certificado 1" />
-      </a>
-      <div class="conteudo">
-        <h2 data-i18n="cert1_title">1- Futuro Conectado: Profissões e Tecnologia</h2>
-        <p data-i18n="cert1_date">Finalizado em 11 de Março de 2025</p>
-        <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
-        <div class="link-certificado">
-          <div class="ver">
-            <a href="Certificado/Certificado 1.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-          </div>
-          <div class="baixar">
-            <a href="Certificado/Certificado 1.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+        <!-- cert 1 -->
+      <section class="certificado js" data-date="2025-03-11">
+        <a href="Certificado/Certificado 1.pdf" target="_blank">
+          <img src="Img/certificado1.png" alt="Certificado 1" />
+        </a>
+        <div class="conteudo">
+          <h2 data-i18n="cert1_title">1- Futuro Conectado: Profissões e Tecnologia</h2>
+          <p data-i18n="cert1_date">Finalizado em 11 de Março de 2025</p>
+          <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
+          <div class="link-certificado">
+            <div class="ver">
+              <a href="Certificado/Certificado 1.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
+            </div>
+            <div class="baixar">
+              <a href="Certificado/Certificado 1.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="certificado js" data-date="2025-05-09">
-      <a href="Certificado/Certificado 2.pdf" target="_blank">
-        <img src="Img/certificado2.png" alt="Certificado 2" />
-      </a>
-      <div class="conteudo">
-        <h2 data-i18n="cert2_title">2- Lógica de Programação: Criando Arte Interativa com P5.js</h2>
-        <p data-i18n="cert2_date">Finalizado em 09 de Maio de 2025</p>
-        <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
-        <div class="link-certificado">
-          <div class="ver">
-            <a href="Certificado/Certificado 2.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-          </div>
-          <div class="baixar">
-            <a href="Certificado/Certificado 2.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+        <!-- cert 2 -->
+      <section class="certificado js" data-date="2025-05-09">
+        <a href="Certificado/Certificado 2.pdf" target="_blank">
+          <img src="Img/certificado2.png" alt="Certificado 2" />
+        </a>
+        <div class="conteudo">
+          <h2 data-i18n="cert2_title">2- Lógica de Programação: Criando Arte Interativa com P5.js</h2>
+          <p data-i18n="cert2_date">Finalizado em 09 de Maio de 2025</p>
+          <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
+          <div class="link-certificado">
+            <div class="ver">
+              <a href="Certificado/Certificado 2.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
+            </div>
+            <div class="baixar">
+              <a href="Certificado/Certificado 2.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="certificado js" data-date="2025-05-10">
-      <a href="Certificado/Certificado 3.pdf" target="_blank">
-        <img src="Img/certificado3.png" alt="Certificado 3" />
-      </a>
-      <div class="conteudo">
-        <h2 data-i18n="cert3_title">3- Listas, Funções e Repetição: Corrida (Parte 1)</h2>
-        <p data-i18n="cert3_date">Finalizado em 10 de Maio de 2025</p>
-        <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
-        <div class="link-certificado">
-          <div class="ver">
-            <a href="Certificado/Certificado 3.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-          </div>
-          <div class="baixar">
-            <a href="Certificado/Certificado 3.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+        <!-- cert 3 -->
+      <section class="certificado js" data-date="2025-05-10">
+        <a href="Certificado/Certificado 3.pdf" target="_blank">
+          <img src="Img/certificado3.png" alt="Certificado 3" />
+        </a>
+        <div class="conteudo">
+          <h2 data-i18n="cert3_title">3- Listas, Funções e Repetição: Corrida (Parte 1)</h2>
+          <p data-i18n="cert3_date">Finalizado em 10 de Maio de 2025</p>
+          <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
+          <div class="link-certificado">
+            <div class="ver">
+              <a href="Certificado/Certificado 3.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
+            </div>
+            <div class="baixar">
+              <a href="Certificado/Certificado 3.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="certificado js" data-date="2025-05-12">
-      <a href="Certificado/Certificado 4.pdf" target="_blank">
-        <img src="Img/certificado4.png" alt="Certificado 4" />
-      </a>
-      <div class="conteudo">
-        <h2 data-i18n="cert4_title">4- Listas, Funções e Repetição: Corrida (Parte 2)</h2>
-        <p data-i18n="cert4_date">Finalizado em 12 de Maio de 2025</p>
-        <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
-        <div class="link-certificado">
-          <div class="ver">
-            <a href="Certificado/Certificado 4.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-          </div>
-          <div class="baixar">
-            <a href="Certificado/Certificado 4.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+        <!-- cert 4 -->
+      <section class="certificado js" data-date="2025-05-12">
+        <a href="Certificado/Certificado 4.pdf" target="_blank">
+          <img src="Img/certificado4.png" alt="Certificado 4" />
+        </a>
+        <div class="conteudo">
+          <h2 data-i18n="cert4_title">4- Listas, Funções e Repetição: Corrida (Parte 2)</h2>
+          <p data-i18n="cert4_date">Finalizado em 12 de Maio de 2025</p>
+          <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
+          <div class="link-certificado">
+            <div class="ver">
+              <a href="Certificado/Certificado 4.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
+            </div>
+            <div class="baixar">
+              <a href="Certificado/Certificado 4.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="certificado html css js git github" data-date="2025-05-24">
-      <a href="Certificado/certificado 5.pdf" target="_blank">
-        <img src="Img/certificado5.png" alt="Certificado 5" />
-      </a>
-      <div class="conteudo">
-        <h2 data-i18n="cert5_title">5- Fundamentos da Programação Web</h2>
-        <p data-i18n="cert5_date">Finalizado em 24 de Maio de 2025</p>
-        <p><strong data-i18n="emitido_por">Emitido por:</strong> Rocketseat</p>
-        <div class="link-certificado">
-          <div class="ver">
-            <a href="Certificado/certificado 5.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-          </div>
-          <div class="baixar">
-            <a href="Certificado/certificado 5.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+        <!-- cert 5 -->
+      <section class="certificado html css js git github" data-date="2025-05-24">
+        <a href="Certificado/certificado 5.pdf" target="_blank">
+          <img src="Img/certificado5.png" alt="Certificado 5" />
+        </a>
+        <div class="conteudo">
+          <h2 data-i18n="cert5_title">5- Fundamentos da Programação Web</h2>
+          <p data-i18n="cert5_date">Finalizado em 24 de Maio de 2025</p>
+          <p><strong data-i18n="emitido_por">Emitido por:</strong> Rocketseat</p>
+          <div class="link-certificado">
+            <div class="ver">
+              <a href="Certificado/certificado 5.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
+            </div>
+            <div class="baixar">
+              <a href="Certificado/certificado 5.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="certificado html css" data-date="2025-07-02">
-      <a href="Certificado/Certificado 6.pdf" target="_blank">
-        <img src="Img/certificado6.png" alt="Certificado 6" />
-      </a>
-      <div class="conteudo">
-        <h2 data-i18n="cert6_title">6- Página Web: Criando seu Portfólio</h2>
-        <p data-i18n="cert6_date">Finalizado em 02 de Julho de 2025</p>
-        <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
-        <div class="link-certificado">
-          <div class="ver">
-            <a href="Certificado/Certificado 6.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-          </div>
-          <div class="baixar">
-            <a href="Certificado/Certificado 6.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+        <!-- cert 6 -->
+      <section class="certificado html css" data-date="2025-07-02">
+        <a href="Certificado/Certificado 6.pdf" target="_blank">
+          <img src="Img/certificado6.png" alt="Certificado 6" />
+        </a>
+        <div class="conteudo">
+          <h2 data-i18n="cert6_title">6- Página Web: Criando seu Portfólio</h2>
+          <p data-i18n="cert6_date">Finalizado em 02 de Julho de 2025</p>
+          <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
+          <div class="link-certificado">
+            <div class="ver">
+              <a href="Certificado/Certificado 6.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
+            </div>
+            <div class="baixar">
+              <a href="Certificado/Certificado 6.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     </div>
   </main>
 
+  <!-- Botão fixo para voltar ao topo -->
   <a href="#topo" class="voltar-topo" title="Voltar ao topo">↑</a>
 
+  <!-- Script principal da aplicação -->
   <script src="script.js"></script>
 </body>
 </html>
