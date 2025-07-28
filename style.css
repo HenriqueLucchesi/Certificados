@@ -52,9 +52,9 @@ h1 {
 
 #language-bar {
   display: block;
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
+  position: absolute;
+  top: 6rem;
+  right: 19rem;
   z-index: 1000;
 }
 
@@ -333,4 +333,12 @@ h1 {
     left: 0;
     min-width: 100%;
   }
+}
+
+#language-bar {
+  display: block;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
 }
