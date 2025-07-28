@@ -1,4 +1,4 @@
-// Função para alternar o tema
+// Alternar tema
 function toggleMode() {
   const html = document.documentElement;
   html.classList.toggle('light');
@@ -10,107 +10,17 @@ function toggleMode() {
   }
 }
 
-// Aplica tema salvo do localStorage
+// Aplicar tema salvo
 if (localStorage.getItem('theme') === 'light') {
   document.documentElement.classList.add('light');
 }
 
-// Ativa o botão de alternância de tema
 const themeBtn = document.querySelector('#switch');
 if (themeBtn) {
   themeBtn.addEventListener('click', toggleMode);
 }
 
-// Espera o carregamento do DOM
-window.addEventListener('DOMContentLoaded', () => {
-  // Botões dropdown
-  const btnTec = document.getElementById('dropdownTecBtn');
-  const btnData = document.getElementById('ordenarDataBtn');
-
-  // Menus dropdown
-  const dropdownTec = document.getElementById('dropdownTec');
-  const dropdownData = document.getElementById('dropdownData');
-
-  // Setas
-  const arrowTec = btnTec.querySelector('.arrow');
-  const arrowData = btnData.querySelector('.arrow');
-
-  // Alternar menu de tecnologia
-  btnTec.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = dropdownTec.style.display === 'block';
-    dropdownTec.style.display = isOpen ? 'none' : 'block';
-    arrowTec.classList.toggle('open', !isOpen);
-
-    // Fecha o menu de data
-    dropdownData.style.display = 'none';
-    arrowData.classList.remove('open');
-  });
-
-  // Alternar menu de data
-  btnData.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = dropdownData.style.display === 'block';
-    dropdownData.style.display = isOpen ? 'none' : 'block';
-    arrowData.classList.toggle('open', !isOpen);
-
-    // Fecha o menu de tecnologia
-    dropdownTec.style.display = 'none';
-    arrowTec.classList.remove('open');
-  });
-
-  // Fechar menus ao clicar fora
-  window.addEventListener('click', () => {
-    dropdownTec.style.display = 'none';
-    dropdownData.style.display = 'none';
-    arrowTec.classList.remove('open');
-    arrowData.classList.remove('open');
-  });
-
-  // Filtro por tecnologia
-  const filtros = dropdownTec.querySelectorAll('button');
-  const certificados = document.querySelectorAll('.certificado');
-
-  filtros.forEach(botao => {
-    botao.addEventListener('click', () => {
-      const tec = botao.getAttribute('data-tecnologia').toLowerCase();
-
-      certificados.forEach(cert => {
-        const classes = cert.className.toLowerCase();
-        cert.style.display = (tec === 'todos' || classes.includes(tec)) ? 'flex' : 'none';
-      });
-
-      dropdownTec.style.display = 'none';
-      arrowTec.classList.remove('open');
-    });
-  });
-
-  // Ordenar por data
-  const ordenarButtons = dropdownData.querySelectorAll('button[data-order]');
-
-  ordenarButtons.forEach(botao => {
-    botao.addEventListener('click', () => {
-      const ordem = botao.getAttribute('data-order');
-      const container = document.querySelector('.container');
-      const certificados = Array.from(container.querySelectorAll('.certificado'));
-
-      certificados.sort((a, b) => {
-        const dataA = new Date(a.dataset.date);
-        const dataB = new Date(b.dataset.date);
-        return ordem === 'asc' ? dataA - dataB : dataB - dataA;
-      });
-
-      certificados.forEach(cert => container.appendChild(cert));
-
-      dropdownData.style.display = 'none';
-      arrowData.classList.remove('open');
-    });
-  });
-});
-
-
-// LINGUAGEM TRAD
-// Traduções para múltiplos idiomas
+// Traduções
 const translations = {
   "pt-BR": {
     "titulo_pagina": "Certificados",
@@ -212,45 +122,7 @@ const translations = {
   }
 };
 
-// Função para mudar idioma
-function selectLanguage(lang) {
-  localStorage.setItem('lang', lang);
-  updateLanguageUI(lang);
-  toggleLangDropdown(); // fecha o leque
-}
-
-// Atualiza textos da página
-function updateLanguageUI(lang) {
-  const dict = translations[lang] || translations['pt-BR'];
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (dict[key]) el.innerText = dict[key];
-  });
-
-  // Atualiza textos fixos dos certificados
-  document.querySelectorAll('.certificado').forEach(cert => {
-    const dateP = cert.querySelector('p:nth-of-type(1)');
-    const issuerP = cert.querySelector('p:nth-of-type(2)');
-    const viewLink = cert.querySelector('.ver a');
-    const downloadLink = cert.querySelector('.baixar a');
-
-    if (dateP) dateP.innerHTML = `${dict['finalizado-em']} ${dateP.innerText.split(' ').slice(-3).join(' ')}`;
-    if (issuerP) issuerP.innerHTML = `<strong>${dict['emitido-por']}</strong> Alura`;
-    if (viewLink) viewLink.innerText = dict['ver-certificado'];
-    if (downloadLink) downloadLink.innerText = dict['baixar-certificado'];
-  });
-
-  // Atualiza botão principal e menus
-document.getElementById('ordenarDataBtn').innerText = dict['ordem_data'];
-document.querySelectorAll('#dropdownData button')[0].innerText = dict['mais_antigo'];
-document.querySelectorAll('#dropdownData button')[1].innerText = dict['mais_recente'];
-  document.getElementById('dropdownTecBtn').innerHTML = `${dict['tecnologia']} <span class="arrow">&#9662;</span>`;
-  document.querySelectorAll('#dropdownTec button')[0].innerText = dict['todos'];
-  document.querySelector('.baixar_todos').innerText = dict['baixar-todos'];
-
-  // Atualiza bandeira e idioma atual
-  const langImgMap = {
+const langImgMap = {
   'pt-BR': 'br',
   'en-US': 'us',
   'es-ES': 'es',
@@ -260,25 +132,156 @@ document.querySelectorAll('#dropdownData button')[1].innerText = dict['mais_rece
   'ru-RU': 'ru'
 };
 
-  document.querySelector('#current-lang').innerText = lang;
-  document.querySelector('.dropbtn img.flag').src = `https://flagcdn.com/w20/${langImgMap[lang] || 'br'}.png`;
+const langNameMap = {
+  'pt-BR': 'PT-BR',
+  'en-US': 'EN-US',
+  'es-ES': 'ES-ES',
+  'fr-FR': 'FR-FR',
+  'zh-CN': 'ZH-CN',
+  'hi-IN': 'HI-IN',
+  'ru-RU': 'RU-RU'
+};
+
+// Função para trocar idioma
+function selectLanguage(lang) {
+  localStorage.setItem('lang', lang);
+  updateLanguageUI(lang);
+  toggleLangDropdown();
 }
 
-// Leque do idioma
+// Atualizar UI com o idioma escolhido
+function updateLanguageUI(lang) {
+  const dict = translations[lang] || translations['pt-BR'];
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key]) el.innerText = dict[key];
+  });
+
+  // Atualiza campos internos dos certificados
+  document.querySelectorAll('.certificado').forEach(cert => {
+    const dateP = cert.querySelector('p:nth-of-type(1)');
+    const issuerP = cert.querySelector('p:nth-of-type(2)');
+    const viewLink = cert.querySelector('.ver a');
+    const downloadLink = cert.querySelector('.baixar a');
+
+    if (dateP) {
+      const partes = dateP.innerText.trim().split(' ');
+      const dataFinal = partes.slice(-3).join(' ');
+      dateP.innerText = `${dict['finalizado-em']} ${dataFinal}`;
+    }
+
+    if (issuerP) issuerP.innerHTML = `<strong>${dict['emitido-por']}</strong> Alura`;
+    if (viewLink) viewLink.innerText = dict['ver-certificado'];
+    if (downloadLink) downloadLink.innerText = dict['baixar-certificado'];
+  });
+
+  // Botões e menus
+  document.getElementById('ordenarDataBtn').innerText = dict['ordem_data'];
+  document.querySelectorAll('#dropdownData button')[0].innerText = dict['mais_antigo'];
+  document.querySelectorAll('#dropdownData button')[1].innerText = dict['mais_recente'];
+  document.getElementById('dropdownTecBtn').innerHTML = `${dict['tecnologia']} <span class="arrow">&#9662;</span>`;
+  document.querySelectorAll('#dropdownTec button')[0].innerText = dict['todos'];
+  document.querySelector('.baixar-btn').innerText = dict['baixar_todos'];
+
+  // Atualiza bandeira e código do idioma
+  const flagImg = document.getElementById('current-flag');
+  const langSpan = document.getElementById('current-lang');
+  if (flagImg && langSpan) {
+    flagImg.src = `https://flagcdn.com/w20/${langImgMap[lang] || 'br'}.png`;
+    langSpan.innerText = langNameMap[lang] || 'PT-BR';
+  }
+}
+
+// Alternar dropdown de idioma
 function toggleLangDropdown() {
   const wrapper = document.querySelector(".language-selector-wrapper");
   wrapper.classList.toggle("show");
 }
 
-// Fecha dropdown se clicar fora
+// Fecha dropdown de idioma se clicar fora
 window.addEventListener("click", function (e) {
   if (!e.target.closest(".language-selector-wrapper")) {
     document.querySelector(".language-selector-wrapper").classList.remove("show");
   }
 });
 
-// Aplica idioma salvo ou padrão
-document.addEventListener('DOMContentLoaded', () => {
+// DOM carregado
+window.addEventListener('DOMContentLoaded', () => {
   const lang = localStorage.getItem('lang') || 'pt-BR';
   updateLanguageUI(lang);
+
+  const btnTec = document.getElementById('dropdownTecBtn');
+  const btnData = document.getElementById('ordenarDataBtn');
+  const dropdownTec = document.getElementById('dropdownTec');
+  const dropdownData = document.getElementById('dropdownData');
+  const arrowTec = btnTec.querySelector('.arrow');
+  const arrowData = btnData.querySelector('.arrow');
+
+  // Dropdown de tecnologia
+  btnTec.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dropdownTec.style.display === 'block';
+    dropdownTec.style.display = isOpen ? 'none' : 'block';
+    arrowTec.classList.toggle('open', !isOpen);
+    dropdownData.style.display = 'none';
+    arrowData.classList.remove('open');
+  });
+
+  // Dropdown de data
+  btnData.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dropdownData.style.display === 'block';
+    dropdownData.style.display = isOpen ? 'none' : 'block';
+    arrowData.classList.toggle('open', !isOpen);
+    dropdownTec.style.display = 'none';
+    arrowTec.classList.remove('open');
+  });
+
+  // Fecha menus dropdown
+  window.addEventListener('click', () => {
+    dropdownTec.style.display = 'none';
+    dropdownData.style.display = 'none';
+    arrowTec.classList.remove('open');
+    arrowData.classList.remove('open');
+  });
+
+  // Filtro por tecnologia
+  const filtros = dropdownTec.querySelectorAll('button');
+  const certificados = document.querySelectorAll('.certificado');
+
+  filtros.forEach(botao => {
+    botao.addEventListener('click', () => {
+      const tec = botao.getAttribute('data-tecnologia').toLowerCase();
+
+      certificados.forEach(cert => {
+        const classes = cert.className.toLowerCase();
+        cert.style.display = (tec === 'todos' || classes.includes(tec)) ? 'flex' : 'none';
+      });
+
+      dropdownTec.style.display = 'none';
+      arrowTec.classList.remove('open');
+    });
+  });
+
+  // Ordenar por data
+  const ordenarButtons = dropdownData.querySelectorAll('button[data-order]');
+  ordenarButtons.forEach(botao => {
+    botao.addEventListener('click', () => {
+      const ordem = botao.getAttribute('data-order');
+      const container = document.querySelector('.container');
+      const certificados = Array.from(container.querySelectorAll('.certificado'));
+
+      certificados.sort((a, b) => {
+        const dataA = new Date(a.dataset.date);
+        const dataB = new Date(b.dataset.date);
+        return ordem === 'asc' ? dataA - dataB : dataB - dataA;
+      });
+
+      certificados.forEach(cert => container.appendChild(cert));
+
+      dropdownData.style.display = 'none';
+      arrowData.classList.remove('open');
+    });
+  });
 });

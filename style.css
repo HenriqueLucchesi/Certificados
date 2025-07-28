@@ -53,8 +53,8 @@ h1 {
 #language-bar {
   display: block;
   position: absolute;
-  top: 6rem;
-  right: 19rem;
+  top: 1rem;
+  right: 1rem;
   z-index: 1000;
 }
 
@@ -335,10 +335,3 @@ h1 {
   }
 }
 
-#language-bar {
-  display: block;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1000;
-}
