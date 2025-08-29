@@ -164,28 +164,33 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==================== FILTRO DE CERTIFICADOS ====================
-  // Botões principais (Todos, Programação, Front-End, Back-End)
   dropdownTec.querySelectorAll('button[data-filter]').forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.getAttribute('data-filter');
 
       if (filter === 'todos') {
         certificadoElements.forEach(cert => cert.style.display = 'flex');
+      } else if (filter === 'ingles') {
+        certificadoElements.forEach(cert => {
+          cert.style.display = cert.classList.contains('ingles') ? 'flex' : 'none';
+        });
       } else if (filter === 'programacao' || filter === 'frontend' || filter === 'backend') {
-        // Não faz nada; apenas abre submenu
+        // Não filtra diretamente, só abre submenu
       }
     });
   });
 
   // Botões de linguagens (HTML, CSS, JS)
-  frontendPanel.querySelectorAll('button').forEach(langBtn => {
-    langBtn.addEventListener('click', () => {
-      const lang = langBtn.textContent.toLowerCase(); // "html", "css", "javascript"
-      certificadoElements.forEach(cert => {
-        cert.style.display = cert.classList.contains(lang) ? 'flex' : 'none';
+  if (frontendPanel) {
+    frontendPanel.querySelectorAll('button').forEach(langBtn => {
+      langBtn.addEventListener('click', () => {
+        const lang = langBtn.textContent.toLowerCase();
+        certificadoElements.forEach(cert => {
+          cert.style.display = cert.classList.contains(lang) ? 'flex' : 'none';
+        });
       });
     });
-  });
+  }
 
   // ==================== ORDENAR POR DATA ====================
   dropdownData.querySelectorAll('button[data-order]').forEach(btn => {
