@@ -167,7 +167,6 @@ h1 {
 .dropbtn:hover {
   background-color: var(--cor-botao-filtro);
   box-shadow: 0 8px 16px var(--cor-da-shadow);
-  transform: scale(1.2);
 }
 
 .arrow {
@@ -185,13 +184,13 @@ h1 {
   display: none;
   position: absolute;
   background-color: var(--fundo-card);
-  border-radius: 10px;
+  border-radius: 1px;
   box-shadow: 0 8px 16px var(--cor-da-shadow);
   z-index: 1;
   margin-top: 5px;
-  min-width: 200px;
+  max-width: 180px;
   top: 100%;
-  right: 0; /* ou left: 0 se quiser alinhado à esquerda */
+  right: -60; /* ou left: 0 se quiser alinhado à esquerda */
 }
 
 .dropdown-content button {
@@ -206,7 +205,93 @@ h1 {
   display: inline-block;
 }
 
+.dropdown-content2 button:hover {
+  background-color: var(--cor-botao-filtro);
+}
+
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  background-color: var(--fundo-card);
+  border-radius: 1px;
+  box-shadow: 0 8px 16px var(--cor-da-shadow);
+  z-index: 1;
+  margin-top: 5px;
+  max-width: 180px;
+  top: 100%;
+  right: -60; /* ou left: 0 se quiser alinhado à esquerda */
+}
+
+.dropdown-content2 button {
+  color: var(--text-color);
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-block;
+}
+
 .dropdown-content button:hover {
+  background-color: var(--cor-botao-filtro);
+}
+
+.dropdown-submenu {
+  flex-direction: row;
+  justify-content: start;
+  display: flex;
+  max-width: 500px;
+  position: absolute;
+  background-color: var(--fundo-card);
+  box-shadow: 5px 8px 16px var(--cor-da-shadow);
+  left: 100%;
+  top: 0%;
+}
+
+.dropdown-submenu button {
+  padding: 10px 16px;
+  position: relative;
+  max-width: 200px;
+  border: none;
+  background: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.dropdown-submenu button:hover {
+  background-color: var(--cor-botao-filtro);
+}
+
+/* Front-end submenu */
+.frontend-wrapper {
+  position: relative; /* para o submenu abrir embaixo do botão */
+}
+
+.dropdown-frontend {
+  display: none;
+  position: absolute;
+  background-color: var(--fundo-card);
+  box-shadow: 4px 4px 12px var(--cor-da-shadow);
+  max-width: 150px;
+  z-index: 10;
+}
+
+.dropdown-frontend button {
+  font-size: 13px;
+  width: 100%;
+  padding: 8px 14px;
+  border: none;
+  background: none;
+  color: var(--text-color);
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-frontend button:hover {
   background-color: var(--cor-botao-filtro);
 }
 
@@ -226,7 +311,6 @@ h1 {
 .baixar-btn:hover {
   background-color: var(--cor-botao-filtro);
   box-shadow: 0 8px 16px var(--cor-da-shadow);
-  transform: scale(1.1);
 }
 
 /* ===== CERTIFICADO ===== */
@@ -329,9 +413,28 @@ h1 {
   }
 
   .dropdown-content {
-    right: 0;
-    left: 0;
-    min-width: 100%;
+    left: 85px;
+    max-width: 40%;
+    right: 50px;
+  }
+
+  .dropdown-submenu {
+   right: -90px;
+   top: 67px;
   }
 }
 
+@media (max-width: 1024px) {
+  .dropdown-submenu {
+    min-width: 100px;
+    left: -0px;
+    top: 109px;
+  }
+
+  .dropdown-content2 {
+    left: -115px;
+    top: -5px;
+    gap: 0.5rem;
+    max-width: 180px;
+  }
+}
