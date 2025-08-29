@@ -43,7 +43,9 @@
       <!-- Barra de filtros -->
       <div class="barra-controle">
         <div class="esquerda">
-          <button id="ordenarDataBtn" class="dropbtn" aria-haspopup="true" aria-expanded="false" data-i18n="ordem_data">Ordem por data <span class="arrow">&#9662;</span>
+          <!-- Ordem por data -->
+          <button id="ordenarDataBtn" class="dropbtn" data-i18n="ordem_data">
+            <i class="bi bi-calendar"></i> <span class="btn-text" data-i18n="ordem_data">Ordem por data</span> <span class="arrow">&#9662;</span>
           </button>
           <div id="dropdownData" class="dropdown-content" role="menu">
             <button data-order="asc" data-i18n="mais_antigo" role="menuitem">Mais antigo ➡ Mais recente</button>
@@ -52,13 +54,16 @@
         </div>
 
         <div class="centro">
-          <a href="Certificado.zip" download class="baixar-btn" data-i18n="baixar_todos" title="baixar todos os certificados em .zip"> <i class="bi bi-download"></i> Baixar todos os certificados</a>
+          <!-- Baixar todos -->
+          <a href="Certificado.zip" download class="baixar-btn" data-i18n="baixar_todos" title="baixar todos os certificados em .zip">
+            <i class="bi bi-download"></i> <span class="btn-text" data-i18n="baixar_todos">Baixar todos os certificados</span>
+          </a>
         </div>
 
         <div class="direita">
-          <button id="dropdownTecBtn" class="dropbtn" aria-haspopup="true" aria-expanded="false">
-            <span data-i18n="Filtrar por">Filtrar por</span>
-            <span class="arrow">&#9662;</span>
+          <!-- Filtrar por -->
+          <button id="dropdownTecBtn" class="dropbtn">
+            <i class="bi bi-filter"></i> <span class="btn-text" data-i18n="filtrar_por">Filtrar por</span> <span class="arrow">&#9662;</span>
           </button>
           <div id="dropdownTec" class="dropdown-content2" role="menu">
             <button type="button" data-filter="todos" role="menuitem">
@@ -69,9 +74,7 @@
                 <span data-i18n="programacao">PROGRAMAÇÃO</span>
               </button>
 
-              <!-- submenu que abre em leque -->
               <div class="dropdown-submenu">
-                <!-- Coluna Front-end -->
                 <div class="frontend-wrapper">
                   <button type="button" data-filter="frontend" class="frontend-toggle">FRONT-END</button>
                   <div class="dropdown-frontend">
@@ -81,7 +84,6 @@
                   </div>
                 </div>
 
-                <!-- Coluna Back-end -->
                 <div class="backend-wrapper">
                   <button type="button" data-filter="backend">BACK-END</button>
                 </div>
@@ -89,15 +91,16 @@
             </div>
 
             <button type="button" data-filter="ingles" role="menuitem">
-              <span data-i18n="ingles">Inglês</span>
+              <span data-i18n="ingles" class="ingles=btn">Inglês</span>
             </button>
           </div>
         </div>
       </div>
 
-      <!-- ====== CERTIFICADOS ====== -->
-      <!-- Cada certificado -->
-      <section class="certificado js" data-date="2025-03-11">
+      <!-- CERTIFICADOS COMPLETOS -->
+      <!-- Aqui entram os 8 certificados, seguindo seu HTML original -->
+      <!-- Certificado 1 -->
+      <section class="certificado javascript" data-date="2025-03-11">
         <a href="Certificado/Certificado 1.pdf" target="_blank">
           <img src="Img/certificado1.png" alt="Certificado 1 - Futuro Conectado" />
         </a>
@@ -106,13 +109,14 @@
           <p data-i18n="cert1_date">Finalizado em 11 de Março de 2025</p>
           <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
           <div class="link-certificado">
-            <a href="Certificado/Certificado 1.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-            <a href="Certificado/Certificado 1.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            <a href="Certificado/Certificado 1.pdf" target="_blank" data-i18n="ver_certificado"><i class="bi bi-eye"></i> Ver Certificado</a>
+            <a href="Certificado/Certificado 1.pdf" download data-i18n="baixar_certificado"><i class="bi bi-download"></i> Baixar Certificado</a>
           </div>
         </div>
       </section>
 
-      <section class="certificado js" data-date="2025-05-09">
+      <!-- Certificado 2 -->
+      <section class="certificado javascript" data-date="2025-05-09">
         <a href="Certificado/Certificado 2.pdf" target="_blank">
           <img src="Img/certificado2.png" alt="Certificado 2 - Lógica de Programação" />
         </a>
@@ -121,13 +125,14 @@
           <p data-i18n="cert2_date">Finalizado em 09 de Maio de 2025</p>
           <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
           <div class="link-certificado">
-            <a href="Certificado/Certificado 2.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-            <a href="Certificado/Certificado 2.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            <a href="Certificado/Certificado 2.pdf" target="_blank" data-i18n="ver_certificado"><i class="bi bi-eye"></i> Ver Certificado</a>
+            <a href="Certificado/Certificado 2.pdf" download data-i18n="baixar_certificado"><i class="bi bi-download"></i> Baixar Certificado</a>
           </div>
         </div>
       </section>
 
-      <section class="certificado js" data-date="2025-05-10">
+      <!-- Certificado 3 -->
+      <section class="certificado javascript" data-date="2025-05-10">
         <a href="Certificado/Certificado 3.pdf" target="_blank">
           <img src="Img/certificado3.png" alt="Certificado 3 - Corrida parte 1" />
         </a>
@@ -136,13 +141,14 @@
           <p data-i18n="cert3_date">Finalizado em 10 de Maio de 2025</p>
           <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
           <div class="link-certificado">
-            <a href="Certificado/Certificado 3.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-            <a href="Certificado/Certificado 3.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            <a href="Certificado/Certificado 3.pdf" target="_blank" data-i18n="ver_certificado"><i class="bi bi-eye"></i> Ver Certificado</a>
+            <a href="Certificado/Certificado 3.pdf" download data-i18n="baixar_certificado"><i class="bi bi-download"></i> Baixar Certificado</a>
           </div>
         </div>
       </section>
 
-      <section class="certificado js" data-date="2025-05-12">
+      <!-- Certificado 4 -->
+      <section class="certificado javascript" data-date="2025-05-12">
         <a href="Certificado/Certificado 4.pdf" target="_blank">
           <img src="Img/certificado4.png" alt="Certificado 4 - Corrida parte 2" />
         </a>
@@ -151,13 +157,14 @@
           <p data-i18n="cert4_date">Finalizado em 12 de Maio de 2025</p>
           <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
           <div class="link-certificado">
-            <a href="Certificado/Certificado 4.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-            <a href="Certificado/Certificado 4.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            <a href="Certificado/Certificado 4.pdf" target="_blank" data-i18n="ver_certificado"><i class="bi bi-eye"></i> Ver Certificado</a>
+            <a href="Certificado/Certificado 4.pdf" download data-i18n="baixar_certificado"><i class="bi bi-download"></i> Baixar Certificado</a>
           </div>
         </div>
       </section>
 
-      <section class="certificado html css js " data-date="2025-05-24">
+      <!-- Certificado 5 -->
+      <section class="certificado html css javascript" data-date="2025-05-24">
         <a href="Certificado/Certificado 5.pdf" target="_blank">
           <img src="Img/certificado5.png" alt="Certificado 5 - Fundamentos da Web" />
         </a>
@@ -166,12 +173,13 @@
           <p data-i18n="cert5_date">Finalizado em 24 de Maio de 2025</p>
           <p><strong data-i18n="emitido_por">Emitido por:</strong> Rocketseat</p>
           <div class="link-certificado">
-            <a href="Certificado/Certificado 5.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-            <a href="Certificado/Certificado 5.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            <a href="Certificado/Certificado 5.pdf" target="_blank" data-i18n="ver_certificado"><i class="bi bi-eye"></i> Ver Certificado</a>
+            <a href="Certificado/Certificado 5.pdf" download data-i18n="baixar_certificado"><i class="bi bi-download"></i> Baixar Certificado</a>
           </div>
         </div>
       </section>
 
+      <!-- Certificado 6 -->
       <section class="certificado html css" data-date="2025-07-02">
         <a href="Certificado/Certificado 6.pdf" target="_blank">
           <img src="Img/certificado6.png" alt="Certificado 6 - Portfólio" />
@@ -181,12 +189,13 @@
           <p data-i18n="cert6_date">Finalizado em 02 de Julho de 2025</p>
           <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
           <div class="link-certificado">
-            <a href="Certificado/Certificado 6.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-            <a href="Certificado/Certificado 6.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            <a href="Certificado/Certificado 6.pdf" target="_blank" data-i18n="ver_certificado"><i class="bi bi-eye"></i> Ver Certificado</a>
+            <a href="Certificado/Certificado 6.pdf" download data-i18n="baixar_certificado"><i class="bi bi-download"></i> Baixar Certificado</a>
           </div>
         </div>
       </section>
 
+      <!-- Certificado 7 -->
       <section class="certificado ingles" data-date="2025-08-20">
         <a href="Certificado/Certificado ingles.pdf" target="_blank">
           <img src="Img/certificadoingles.png" alt="Certificado inglês EF" />
@@ -196,23 +205,24 @@
           <p data-i18n="certingles_date">Finalizado em 20 de Agosto de 2025</p>
           <p><strong data-i18n="emitido_por">Emitido por:</strong> EF</p>
           <div class="link-certificado">
-            <a href="Certificado/Certificado inglês.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-            <a href="Certificado/Certificado inglês.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            <a href="Certificado/Certificado inglês.pdf" target="_blank" data-i18n="ver_certificado"><i class="bi bi-eye"></i> Ver Certificado</a>
+            <a href="Certificado/Certificado inglês.pdf" download data-i18n="baixar_certificado"><i class="bi bi-download"></i> Baixar Certificado</a>
           </div>
         </div>
       </section>
 
-      <section class="certificado html css js" data-date="2025-08-27">
+      <!-- Certificado 8 -->
+      <section class="certificado html css javascript" data-date="2025-08-27">
         <a href="Certificado/Certificado 7.pdf" target="_blank">
-          <img src="Img/Certificado7.png" alt="Certificado 7 - Acessibilidade Web" />
+          <img src="Img/Certificado7.png" alt="Certificado 8 - Acessibilidade Web" />
         </a>
         <div class="conteudo">
           <h2 data-i18n="cert7_title">8- Acessibilidade na Web: Melhorando a Experiência do Usuário</h2>
           <p data-i18n="cert7_date">Finalizado em 27 de Agosto de 2025</p>
           <p><strong data-i18n="emitido_por">Emitido por:</strong> Alura</p>
           <div class="link-certificado">
-            <a href="Certificado/Certificado 7.pdf" target="_blank" data-i18n="ver_certificado">Ver Certificado</a>
-            <a href="Certificado/Certificado 7.pdf" download data-i18n="baixar_certificado">Baixar Certificado</a>
+            <a href="Certificado/Certificado 7.pdf" target="_blank" data-i18n="ver_certificado"><i class="bi bi-eye"></i> Ver Certificado</a>
+            <a href="Certificado/Certificado 7.pdf" download data-i18n="baixar_certificado"><i class="bi bi-download"></i> Baixar Certificado</a>
           </div>
         </div>
       </section>
@@ -220,7 +230,7 @@
     </div>
   </main>
 
-  <a href="#topo" class="voltar-topo" title="Voltar ao topo">↑</a>
+  <a href="#topo" class="voltar-topo" title="Voltar ao topo"><i class="bi bi-arrow-up"></i></a>
   <script src="script.js"></script>
 </body>
 </html>

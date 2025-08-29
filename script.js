@@ -7,12 +7,12 @@ function toggleMode() {
   localStorage.setItem('theme', html.classList.contains('light') ? 'light' : 'dark');
 }
 
-// aplica tema salvo
+// Aplica tema salvo
 if (localStorage.getItem('theme') === 'light') {
   document.documentElement.classList.add('light');
 }
 
-// botão de tema
+// Botão de tema
 const themeBtn = document.querySelector('#switch');
 if (themeBtn) {
   themeBtn.addEventListener('click', toggleMode);
@@ -33,7 +33,9 @@ const translations = {
     "todos": "Todos",
     "programacao": "Programação",
     "ingles": "Inglês",
-    "filtrar por": "filtrar por"
+    "filtrar_por": "Filtrar por",
+    "ver_certificado": "Ver Certificado",
+    "baixar_certificado": "Baixar Certificado"
   },
   "en-US": {
     "titulo_pagina": "Certificates",
@@ -46,7 +48,9 @@ const translations = {
     "todos": "All",
     "programacao": "Programming",
     "ingles": "English",
-    "Filtrar por": "filter by"
+    "filtrar_por": "Filter by",
+    "ver_certificado": "View Certificate",
+    "baixar_certificado": "Download Certificate"
   }
 };
 
@@ -60,7 +64,6 @@ function applyTranslations(lang) {
     }
   });
 
-  // Atualiza botão da bandeira
   const flag = document.getElementById("current-flag");
   const label = document.getElementById("current-lang");
   if (flag && label) {
@@ -77,6 +80,7 @@ function applyTranslations(lang) {
   currentLang = lang;
 }
 
+// Dropdown de idioma
 function toggleLangDropdown() {
   const menu = document.getElementById("lang-menu");
   menu.style.display = (menu.style.display === "block") ? "none" : "block";
@@ -87,10 +91,10 @@ function selectLanguage(lang) {
   document.getElementById("lang-menu").style.display = "none";
 }
 
-// Aplica ao carregar
+// Aplica idioma ao carregar
 applyTranslations(currentLang);
 
-// Fecha dropdown de idioma se clicar fora
+// Fecha dropdown de idioma ao clicar fora
 document.addEventListener("click", (e) => {
   const langMenu = document.getElementById("lang-menu");
   const btn = document.querySelector(".language-selector-wrapper .dropbtn");
@@ -100,21 +104,24 @@ document.addEventListener("click", (e) => {
 });
 
 // ====================
-// Dropdowns Tecnologia/Data
+// Dropdown Tecnologia/Data
 // ====================
 window.addEventListener('DOMContentLoaded', () => {
   const btnTec = document.getElementById('dropdownTecBtn');
   const dropdownTec = document.getElementById('dropdownTec');
   const btnData = document.getElementById('ordenarDataBtn');
   const dropdownData = document.getElementById('dropdownData');
-
   const arrowTec = btnTec.querySelector('.arrow');
   const arrowData = btnData.querySelector('.arrow');
 
   const submenuToggle = dropdownTec.querySelector('.submenu-toggle');
   const submenuPanel = dropdownTec.querySelector('.dropdown-submenu');
+  const frontendToggle = dropdownTec.querySelector('.frontend-toggle');
+  const frontendPanel = dropdownTec.querySelector('.dropdown-frontend');
 
-  // TECNOLOGIA
+  const certificadoElements = document.querySelectorAll('.certificado');
+
+  // ==================== BOTÃO TECNOLOGIA ====================
   btnTec.addEventListener('click', (e) => {
     e.stopPropagation();
     const aberto = dropdownTec.style.display === 'block';
@@ -125,7 +132,7 @@ window.addEventListener('DOMContentLoaded', () => {
     arrowData.classList.remove('open');
   });
 
-  // DATA
+  // ==================== BOTÃO DATA ====================
   btnData.addEventListener('click', (e) => {
     e.stopPropagation();
     const aberto = dropdownData.style.display === 'block';
@@ -134,22 +141,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
     dropdownTec.style.display = 'none';
     arrowTec.classList.remove('open');
-    submenuPanel.style.display = 'none';
+    if (submenuPanel) submenuPanel.style.display = 'none';
+    if (frontendPanel) frontendPanel.style.display = 'none';
   });
 
-  // SUBMENU Programação
+  // ==================== SUBMENU PROGRAMACAO ====================
   if (submenuToggle) {
     submenuToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      const aberto = submenuPanel.style.display === 'flex'; // 🔥 corrigido
+      const aberto = submenuPanel.style.display === 'flex';
       submenuPanel.style.display = aberto ? 'none' : 'flex';
     });
   }
 
-  // SUBMENU Front-End (HTML/CSS/JS)
-  const frontendToggle = dropdownTec.querySelector('.frontend-toggle');
-  const frontendPanel = dropdownTec.querySelector('.dropdown-frontend');
-
+  // ==================== SUBMENU FRONT-END ====================
   if (frontendToggle) {
     frontendToggle.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -158,12 +163,53 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // FECHAR ao clicar fora
+  // ==================== FILTRO DE CERTIFICADOS ====================
+  // Botões principais (Todos, Programação, Front-End, Back-End)
+  dropdownTec.querySelectorAll('button[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      if (filter === 'todos') {
+        certificadoElements.forEach(cert => cert.style.display = 'flex');
+      } else if (filter === 'programacao' || filter === 'frontend' || filter === 'backend') {
+        // Não faz nada; apenas abre submenu
+      }
+    });
+  });
+
+  // Botões de linguagens (HTML, CSS, JS)
+  frontendPanel.querySelectorAll('button').forEach(langBtn => {
+    langBtn.addEventListener('click', () => {
+      const lang = langBtn.textContent.toLowerCase(); // "html", "css", "javascript"
+      certificadoElements.forEach(cert => {
+        cert.style.display = cert.classList.contains(lang) ? 'flex' : 'none';
+      });
+    });
+  });
+
+  // ==================== ORDENAR POR DATA ====================
+  dropdownData.querySelectorAll('button[data-order]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const order = btn.getAttribute('data-order');
+      const container = document.querySelector('.container');
+
+      const sorted = Array.from(certificadoElements).sort((a, b) => {
+        const dateA = new Date(a.dataset.date);
+        const dateB = new Date(b.dataset.date);
+        return order === 'asc' ? dateA - dateB : dateB - dateA;
+      });
+
+      sorted.forEach(cert => container.appendChild(cert));
+    });
+  });
+
+  // ==================== FECHAR AO CLICAR FORA ====================
   document.addEventListener('click', (e) => {
     if (!dropdownTec.contains(e.target) && !btnTec.contains(e.target)) {
       dropdownTec.style.display = 'none';
       arrowTec.classList.remove('open');
-      submenuPanel.style.display = 'none';
+      if (submenuPanel) submenuPanel.style.display = 'none';
+      if (frontendPanel) frontendPanel.style.display = 'none';
     }
 
     if (!dropdownData.contains(e.target) && !btnData.contains(e.target)) {
