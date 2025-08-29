@@ -52,7 +52,7 @@ h1 {
 
 #language-bar {
   display: block;
-  position: absolute;
+  position: fixed;
   top: 1rem;
   right: 1rem;
   z-index: 1000;
@@ -383,18 +383,46 @@ h1 {
   font-size: 1.2rem;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* ===== RESPONSIVIDADE GERAL ===== */
+
+/* Telas muito pequenas (até 480px) - celulares menores */
+@media (max-width: 480px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .dropbtn, .baixar-btn {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .certificado img {
+    width: 100%; /* imagem ocupa a largura toda no celular */
+    max-width: 300px;
+  }
+
+  .conteudo h2 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Telas médias (tablets até 768px) */
 @media (max-width: 768px) {
   .barra-controle {
     flex-direction: column;
     align-items: stretch;
-    gap: 10px;
+    gap: 12px;
   }
 
   .barra-controle > .esquerda,
   .barra-controle > .centro,
   .barra-controle > .direita {
     justify-content: center;
+    width: 100%;
   }
 
   .certificado {
@@ -412,29 +440,42 @@ h1 {
     align-items: center;
   }
 
-  .dropdown-content {
-    left: 85px;
-    max-width: 40%;
-    right: 50px;
+  /* Ajusta dropdowns para não saírem da tela */
+  .dropdown-content,
+  .dropdown-content2 {
+    left: 0;
+    right: auto;
+    width: 100%;
+    max-width: none;
+    position: relative;
   }
 
   .dropdown-submenu {
-   right: -90px;
-   top: 67px;
+    position: relative;
+    flex-direction: column;
+    box-shadow: none;
+    width: 100%;
+    top: auto;
+    left: auto;
+  }
+
+  .dropdown-frontend {
+    position: relative;
+    width: 100%;
   }
 }
 
-@media (max-width: 1024px) {
-  .dropdown-submenu {
-    min-width: 100px;
-    left: -0px;
-    top: 109px;
+/* Telas grandes (desktops acima de 1200px) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
   }
 
-  .dropdown-content2 {
-    left: -115px;
-    top: -5px;
-    gap: 0.5rem;
-    max-width: 180px;
+  .certificado img {
+    width: 260px;
+  }
+
+  .conteudo h2 {
+    font-size: 1.3rem;
   }
 }
